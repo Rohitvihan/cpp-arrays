@@ -1,4 +1,4 @@
-#longest_subarray_with_given_sum_k
+#longest_subarray_sum_with_given_sum_k
 #include <bits/stdc++.h>
 using namespace std;
 
