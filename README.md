@@ -4,7 +4,7 @@ This repository contains a collection of C++ programs that solve various array-r
 ✨ Features
 Easy-to-understand C++ code
 
-Brute force and optimized versions included
+optimized versions included
 
 Step-by-step logic with helpful comments
 
