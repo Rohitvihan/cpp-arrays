@@ -59,3 +59,44 @@ int main() {
 
     return 0;
 }
+--------------------------------------------------------------------------------
+                   #using_set_data_structure
+#include <bits/stdc++.h>
+using namespace std;
+void union_2_arry(int arr1[],int arr2[],int n)
+{
+    set<int> uni_set;
+    for(int i=0;i<n;i++)
+    {
+        uni_set.insert(arr1[i]);
+    }
+    for(int j=0;j<n;j++)
+    {
+        uni_set.insert(arr2[j]);
+    }
+    cout<<"the union of two arry is:";
+    for(auto k:uni_set)
+    {
+        cout<<k<<" ";
+    }
+}
+int main()
+{
+    int n;
+    cout<<"enter the array size:";
+    cin>>n;
+    int arr1[n],arr2[n];
+    cout<<"enter the elements of arr 1:";
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr1[i];
+    }
+    cout<<"enter the elements of arr 2:";
+    for(int j=0;j<n;j++)
+    {
+        cin>>arr2[j];
+    }
+    union_2_arry(arr1,arr2,n);
+    return 0;
+}
+
