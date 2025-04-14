@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int largest_element(int arr[],int n)
+int sec_largest_element(int arr[],int n)
 {
     int maxi=arr[0];
     int sec_larg=-1;
@@ -29,7 +29,7 @@ int main()
     {
         cin>>arr[i];
     }
-    int res=largest_element(arr,n);
+    int res=sec_largest_element(arr,n);
     cout<<"the second largest element in the array is:"<<res;
     return 0;
 }
