@@ -1,58 +1,60 @@
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
-void markRow(vector<vector<int>> &matrix, int row, int m) {
-    for (int j = 0; j < m; j++) {
-        if (matrix[row][j] != 0) {
-            matrix[row][j] = -1; // Mark
-        }
+
+void markRow(int matrix[][100], int row, int cols) {
+    for (int j = 0; j < cols; j++) {
+        if (matrix[row][j] != 0)
+            matrix[row][j] = -1;
     }
 }
 
-void markCol(vector<vector<int>> &matrix, int col, int n) {
-    for (int i = 0; i < n; i++) {
-        if (matrix[i][col] != 0) {
-            matrix[i][col] = -1; // Mark
-        }
+void markCol(int matrix[][100], int col, int rows) {
+    for (int i = 0; i < rows; i++) {
+        if (matrix[i][col] != 0)
+            matrix[i][col] = -1;
     }
 }
 
-void setZeroes(vector<vector<int>> &matrix) {
-    int n = matrix.size();        // rows
-    int m = matrix[0].size();     // cols
-
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
+void setZeroes(int matrix[][100], int rows, int cols) {
+    // Step 1: Mark rows and cols where 0 is found
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
             if (matrix[i][j] == 0) {
-                markRow(matrix, i, m);
-                markCol(matrix, j, n);
+                markRow(matrix, i, cols);
+                markCol(matrix, j, rows);
             }
         }
     }
 
-    // Convert all -1 to 0
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            if (matrix[i][j] == -1) {
+    // Step 2: Change all -1 to 0
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if (matrix[i][j] == -1)
                 matrix[i][j] = 0;
-            }
         }
     }
 }
 
-// Sample main for testing
 int main() {
-    vector<vector<int>> mat = {
-        {1, 1, 0},
-        {1, 0, 0},
-        {1, 1, 1}
-    };
+    int matrix[100][100];
+    int rows, cols;
 
-    setZeroes(mat);
+    cout << "Enter rows and columns: ";
+    cin >> rows >> cols;
 
-    cout << "Modified matrix:\n";
-    for (auto &row : mat) {
-        for (int val : row) {
-            cout << val << " ";
+    cout << "Enter the matrix:\n";
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cin >> matrix[i][j];
+        }
+    }
+
+    setZeroes(matrix, rows, cols);
+
+    cout << "Matrix after setting zeroes:\n";
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cout << matrix[i][j] << " ";
         }
         cout << endl;
     }
